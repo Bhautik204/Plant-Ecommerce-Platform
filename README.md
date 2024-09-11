@@ -1,7 +1,3 @@
-Here’s a template for a **README.md** file for your plant e-commerce project built using HTML, CSS, PHP, and MySQL. This will give a clear overview of your project, how to set it up, and some technical details.
-
----
-
 # 🌿 Plant E-Commerce Website
 
 This is a fully functional plant e-commerce website where users can browse, search, and purchase plants online. The project is built using HTML, CSS for the frontend, PHP for the backend, and MySQL as the database.
