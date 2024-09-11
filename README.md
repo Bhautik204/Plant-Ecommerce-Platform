@@ -36,12 +36,12 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Plantify-Ecommerce-Platform.git
+   git clone https://github.com/Bhautik204/Plant-Ecommerce-Platform.git
    ```
 
 2. **Move to the Project Directory**:
    ```bash
-   cd Plantify-Ecommerce-Platform
+   cd Plant-Ecommerce-Platform
    ```
 
 3. **Set Up Database**:
@@ -50,7 +50,7 @@ Follow these instructions to get a copy of the project up and running on your lo
      ```sql
      CREATE DATABASE plant_ecommerce;
      ```
-   - Import the provided `plant_ecommerce.sql` file to create the necessary tables:
+   - Import the provided `OPS.sql` file to create the necessary tables:
      - Go to **Import** in phpMyAdmin and choose the SQL file from the project folder.
 
 4. **Configure Database Connection**:
