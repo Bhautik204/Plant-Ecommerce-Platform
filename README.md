@@ -88,13 +88,13 @@ Follow these instructions to get a copy of the project up and running on your lo
 ## 📸 Screenshots
 
 - **Home Page**:
-  ![Homepage Screenshot](path/to/homepage-screenshot.png)
+  ![Homepage Screenshot](https://github.com/Bhautik204/Plant-Ecommerce-Platform/blob/main/project%20images/Home%20Page.png)
 
 - **Shopping Cart**:
-  ![Cart Screenshot](path/to/cart-screenshot.png)
+  ![Cart Screenshot](https://github.com/Bhautik204/Plant-Ecommerce-Platform/blob/main/project%20images/shopping%20Cart.png)
 
 - **Admin Dashboard**:
-  ![Admin Screenshot](path/to/admin-dashboard-screenshot.png)
+  ![Admin Screenshot](https://github.com/Bhautik204/Plant-Ecommerce-Platform/blob/main/project%20images/admin%20panel.png)
 
 ## 🤝 Contributing
 
