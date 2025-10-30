@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: OPS
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ''
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: OPS
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

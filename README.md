@@ -25,11 +25,16 @@ This is a fully functional plant e-commerce website where users can browse, sear
 
 ## 🚀 Getting Started
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing. You can choose between a traditional local server setup or a Dockerized environment.
 
 ### Prerequisites
 
+**For Local Server Setup (XAMPP/WAMP/MAMP):**
 - A local server (e.g., **XAMPP**, **WAMP**, or **MAMP**) with PHP and MySQL installed.
+- Git (optional, for version control).
+
+**For Docker Setup:**
+- Docker Desktop (includes Docker Engine and Docker Compose) installed and running on your system.
 - Git (optional, for version control).
 
 ### Installation
@@ -44,36 +49,65 @@ Follow these instructions to get a copy of the project up and running on your lo
    cd Plant-Ecommerce-Platform
    ```
 
-3. **Set Up Database**:
+### Local Server Setup (XAMPP/WAMP/MAMP)
+
+1. **Set Up Database**:
    - Open **phpMyAdmin** (or any MySQL client).
-   - Create a new database:
-     ```sql
-     CREATE DATABASE plant_ecommerce;
-     ```
-   - Import the provided `OPS.sql` file to create the necessary tables:
+   - Create a new database named `OPS`.
+   - Import the provided `ops.sql` file to create the necessary tables:
      - Go to **Import** in phpMyAdmin and choose the SQL file from the project folder.
 
-4. **Configure Database Connection**:
-   - Open `config.php` and set your database credentials (host, username, password, and database name):
+2. **Configure Database Connection**:
+   - Open `components/connect.php` and set your database credentials (host, username, password, and database name). By default, it should be:
      ```php
      <?php
-     $host = 'localhost';
-     $db_name = 'plant_ecommerce';
-     $username = 'root'; // or your MySQL username
-     $password = ''; // or your MySQL password
+     $db_name = 'mysql:host=localhost;dbname=OPS';
+     $user_name = 'root';
+     $user_password = '';
      ?>
      ```
 
-5. **Start Local Server**:
+3. **Start Local Server**:
    - Open **XAMPP/WAMP/MAMP** and start **Apache** and **MySQL**.
    - Place the project folder in the `htdocs` directory (for XAMPP) or the equivalent for other local servers.
 
-6. **Access the Website**:
+4. **Access the Website**:
    - Open your browser and navigate to:
      ```
-     http://localhost/Plantify-Ecommerce-Platform
+     http://localhost/Plant-Ecommerce-Platform
      ```
 
+### Docker Setup
+
+1.  **Build and Run Containers**:
+    Navigate to the project root directory (where `Dockerfile` and `docker-compose.yml` are located) in your terminal and run:
+    ```bash
+    docker-compose up --build -d
+    ```
+    This will build the `web` service image and start both the `web` and `db` containers in detached mode.
+
+2.  **Initial Database Setup**:
+    Since the `db` service starts with an empty database, you'll need to import the `ops.sql` file into the MySQL container.
+    *   First, copy the `ops.sql` file into the container:
+        ```bash
+        docker cp ops.sql plant-ecommerce-platform-db-1:/tmp/ops.sql
+        ```
+    *   Then, execute the SQL script inside the container. When prompted for the password, just press Enter (as the root password is empty in `docker-compose.yml`):
+        ```bash
+        docker exec -it plant-ecommerce-platform-db-1 bash -c "mysql -u root -p -D OPS < /tmp/ops.sql"
+        ```
+
+3.  **Access the Website**:
+    Once the containers are up and the database is populated, you can access the application in your web browser at:
+    ```
+    http://localhost:8080
+    ```
+
+4.  **Stop the Containers**:
+    To stop the running containers, navigate to the project root directory and run:
+    ```bash
+    docker-compose down
+    ```
 
 ## 📦 Database Structure
 
